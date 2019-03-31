@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
 
         if (editText1.text.toString().equals("")  || editText2.text.toString().equals("")) {
-                Snackbar.make( "入力をして下さい", Snackbar.LENGTH_INDEFINITE)
+                Snackbar.make( v!!,"入力をして下さい", Snackbar.LENGTH_LONG)
                         .setAction("Action") {
                         }.show()
 
@@ -36,19 +36,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             var calc_ans: Double = 0.0
             if (v!!.id == R.id.button_plus) {
                 calc_ans = calc1 + calc2
-                intent.putExtra("VALUE1", calc_ans)
+                intent.putExtra("VALUE1", "$calc_ans")
                 startActivity(intent)
             } else if (v!!.id == R.id.button_minus) {
                 calc_ans = calc1 - calc2
-                intent.putExtra("VALUE1", calc_ans)
+                intent.putExtra("VALUE1", "$calc_ans")
                 startActivity(intent)
             } else if (v!!.id == R.id.button_times) {
                 calc_ans = calc1 * calc2
-                intent.putExtra("VALUE1", calc_ans)
+                intent.putExtra("VALUE1", "$calc_ans")
                 startActivity(intent)
             } else if (v!!.id == R.id.button_division) {
                 calc_ans = calc1 / calc2
-                intent.putExtra("VALUE1", calc_ans)
+                intent.putExtra("VALUE1", "$calc_ans")
                 startActivity(intent)
             }
         }
